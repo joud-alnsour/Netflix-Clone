@@ -2,7 +2,7 @@ import React,{ useRef } from 'react';
 import { Button, Modal, Form } from 'react-bootstrap/';
 
 function ModalMovie(props) {
-
+console.log(props);
     const commentRef = useRef();
     function handleCaption(j) {
         j.preventDefault()
@@ -20,7 +20,7 @@ function ModalMovie(props) {
                     <Modal.Title>{props.movie.title}</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
-                    <img width='100%' src= {props.movie.poster_path} alt={props.movie.title} />
+                    <img src= {`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} />
                     <p>{props.movie.topText ? props.movie.topText: "No Text Provided"}</p>
                     <p>{props.movie.caption}</p>
                 </Modal.Body>
