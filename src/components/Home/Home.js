@@ -2,13 +2,13 @@ import React, { useEffect,useState } from "react";
 import MovieList from "../MovieList/MovieList";
 import{Row,Container} from "react-bootstrap";
 function Home(props) {
-    const [movie, setmovie] = useState();
+    const [film, setfilm] = useState();
 
     const fetchData = async () => {
         try {
-            const List = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=b300cdefad7adfd65b734dc5211bfd15`)
+            const List1 = await fetch(`https://api.themoviedb.org/3/trending/movie/day?api_key=b300cdefad7adfd65b734dc5211bfd15`)
 
-            const List2 = await  List.json();
+            const List2 = await  List1.json();
             let newResult =[];
             for(let x of List2.results){
                 x['caption']=''
@@ -16,36 +16,35 @@ function Home(props) {
                 newResult.push(x)
 
             }
-            setmovie(List2.results);
-            console.log(List2);
+            setfilm(List2.results);
 
         } catch (error) {
-            console.log("error", error);
+             
         }
 
     };
     const updateCaptions =(List2,id) =>{
-        let updated =movie.map(move =>{
-            if (movie.id===id){
-                movie.caption=List2.userCaption;
-                movie.iscaption=!movie.iscaption;
-                return movie;
+        let updated =film.map(move =>{
+            if (film.id===id){
+                film.caption=List2.userCaption;
+                film.iscaption=!film.iscaption;
+                return film;
             }
-            else return movie
+            else return film
         })
-        setmovie(updated);
+        setfilm(updated);
     }
     useEffect(() => { fetchData(); }, []);
 
 
     return (
         <div>
-           {movie &&(<Container fluid >
+           {film &&(<Container fluid >
                 <Row>
                     
                     <MovieList 
                     addComment={props.addComment}
-                    movies={movie} updateCaptions={updateCaptions}/>
+                    movies={film} updateCaptions={updateCaptions}/>
                 </Row>
             </Container>)}
             
