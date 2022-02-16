@@ -40,12 +40,12 @@ function Home() {
 
     return (
         <div>
-            home {movie &&(<Container fluid id="main container">
+           {movie &&(<Container fluid id="main container">
                 <Row id="fiex-row">
                     <MovieList movies={movie} updateCaptions={updateCaptions}/>
                 </Row>
             </Container>)}
-            <h1>Home Page</h1>
+            
 
             
         </div>
