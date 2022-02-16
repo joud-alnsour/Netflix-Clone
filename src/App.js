@@ -15,17 +15,15 @@ function App() {
 
       const data = await response.json();
       let capData = []
-      for (let c of data.results) {
-        c["caption"] ="No Caption"
-        c["isCaption"] =false
-        capData.push(c)
+      for (let h of data.results) {
+        h["caption"] ="No Caption"
+        h["isCaption"] =false
+        capData.push(h)
         
       }
-   console.log(capData[0])
       setMovies(capData);
       
     } catch (error) {
-      console.log("error", error);
     }
   };
     const addComment = (data, id) => {
