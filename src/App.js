@@ -1,7 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Home from "./components/Home/home";
+import Home from "./components/Home/Home";
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {

@@ -8,11 +8,11 @@ function ModalMovie(props) {
         e.preventDefault()
         const userCaption = commentRef.current.value;
         ;
-        const newData = { ...props.movie, userCaption };
+        const newData = { ...props.movie, userCaption };//هون
         props.addComment(newData, props.movie.id);
-        console.log(props.movie)
+         
     }
-    console.log(props.movie)
+     
 
     return (
         <>
@@ -22,13 +22,13 @@ function ModalMovie(props) {
                 </Modal.Header>
                 <Modal.Body>
                     <img width='100%' src= {props.movie.poster_path} alt={props.movie.title} />
-                    <p>{props.movie.isCaption ? props.movie.caption: "No Text Provided"}</p>
-                    {/* <p>{props.movie.caption}</p> */}
+                    <p>{props.movie.topText ? props.movie.topText: "No Text Provided"}</p>
+                    <p>{props.movie.caption}</p>
                 </Modal.Body>
                 <Modal.Footer>
                     <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
                         <Form.Label>Captions:</Form.Label>
-                        <Form.Control ref={commentRef} type="textarea" placeholder={props.movie.isCaption ? props.movie.caption : "Add Your Caption Here..."} />
+                        <Form.Control ref={commentRef} type="textarea" placeholder={props.movie.caption ? props.movie.caption : "Add Your Caption Here..."} />
                     </Form.Group>
                     <Button className="addBtn" variant="primary" type="submit" onClick={handleCaption}  >
                         Add a Caption
