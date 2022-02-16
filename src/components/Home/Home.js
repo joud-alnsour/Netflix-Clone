@@ -1,7 +1,7 @@
 import React, { useEffect,useState } from "react";
 import MovieList from "../MovieList/MovieList";
 import{Row,Container} from "react-bootstrap";
-function Home() {
+function Home(props) {
     const [movie, setmovie] = useState();
 
     const fetchData = async () => {
@@ -40,9 +40,12 @@ function Home() {
 
     return (
         <div>
-           {movie &&(<Container fluid id="main container">
-                <Row id="fiex-row">
-                    <MovieList movies={movie} updateCaptions={updateCaptions}/>
+           {movie &&(<Container fluid >
+                <Row>
+                    
+                    <MovieList 
+                    addComment={props.addComment}
+                    movies={movie} updateCaptions={updateCaptions}/>
                 </Row>
             </Container>)}
             
