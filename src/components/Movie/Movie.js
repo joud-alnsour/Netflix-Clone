@@ -1,12 +1,12 @@
 import React from "react";
 import { CardGroup,Card,Button } from "react-bootstrap";
-
+import "./Move.css" 
 
 function Movie(props) {
   return (
     <CardGroup style={{ display: 'flex', justifyContent: 'space-around', gap: 30, bordercolor: 'black' }}>
       
-    <div>
+    <div >
       <div key={props.movie.id}>
         <Card key={props.movie.id}>
           <Card.Img variant="top"  src= {`https://image.tmdb.org/t/p/w500/${props.movie.poster_path}`} />
