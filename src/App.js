@@ -16,7 +16,7 @@ function App() {
       const data = await response.json();
       let capData = []
       for (let h of data.results) {
-        h["caption"] ="No Caption"
+        h["caption"] ="dont have Caption"
         h["isCaption"] =false
         capData.push(h)
         
