@@ -4,11 +4,10 @@ import { Button, Modal, Form } from 'react-bootstrap/';
 function ModalMovie(props) {
 
     const commentRef = useRef();
-    function handleCaption(e) {
-        e.preventDefault()
+    function handleCaption(j) {
+        j.preventDefault()
         const userCaption = commentRef.current.value;
-        ;
-        const newData = { ...props.movie, userCaption };//هون
+        const newData = { ...props.movie, userCaption };
         props.addComment(newData, props.movie.id);
          
     }
